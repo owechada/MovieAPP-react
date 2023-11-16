@@ -14,6 +14,7 @@ export default function () {
         <div className=" container-fluid topblob">
 
       <TopBlob f={feat} />
+      <h2 className="mh2">Popular movies at the moment</h2>
       <Section_1  setf={setfeat}/>
       <Footer />
         </div>

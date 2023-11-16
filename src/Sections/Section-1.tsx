@@ -166,7 +166,7 @@ return (<section className=" row section-1">
  
 </div>  
     <div className=" page-render col-md-10"> 
-    <h2>Popular movies at the moment</h2>
+
     <SearchBar onSearchEnter={onSearchEnter}  getValue={getSearchvalue} />
    
 {   isloading? <div><Progressbar_  now_={now_}/><IsLoadingComponent/></div>: (resultisEmpty? <Noresult />:<Page itemclick={()=>{

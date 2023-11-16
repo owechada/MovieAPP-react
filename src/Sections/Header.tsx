@@ -61,7 +61,7 @@ else{
   }
     return(<div className=""> 
     <nav className="header-main">
- 
+ <img src='/logo.png'  />
 <div onClick={()=>{    changeColor()}} className="night-toggle">
 <i className="fa-solid fa-circle-half-stroke"></i>
 </div>
