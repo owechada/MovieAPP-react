@@ -12,6 +12,7 @@ import IsLoadingComponent from "../components/IsLoading";
 import Noresult from "../components/Noresults";
 import Modal from 'react-bootstrap/Modal';
 import FullMovieView from "../components/FullMoviewView";
+import Progressbar_ from "../components/progressbar.";
  
 
 
@@ -43,9 +44,9 @@ var currpagedata=arrarofarr[(pagenum-1)]?arrarofarr[(pagenum-1)]:[];
        
     <Row className="movie-row" xs={1} md={2} xl={3}>
 
-    {currpagedata.map((item,keyy)=>{
+    {currpagedata.map((item :any,keyy:any)=>{
    
-    return(<Col ><MovieItem movid_hooker_={props.movid_hooker} clickaction={props.itemclick} key_ ={item.id} object={item} /></Col>)
+    return(<Col key ={keyy}><MovieItem movid_hooker_={props.movid_hooker} clickaction={props.itemclick} key_ ={item.id} object={item} /></Col>)
   
     
     })}
@@ -60,12 +61,15 @@ var currpagedata=arrarofarr[(pagenum-1)]?arrarofarr[(pagenum-1)]:[];
 }
 
 
-export default   function Section_1(){
+export default   function Section_1(props){
 var [resultisEmpty,setresultisEmpty]=useState(false)
   var [objects,setOBJ]=useState(arraydatas)
 var [idf,setidf]=useState(0)
 var [movid,setmovid]=useState(0)
 var [showmodal,setDetiledviewShow]=useState(false)
+var [now_,setnow]=useState(1)
+var [featuerd, setfeatured]=useState({})
+
 
   var [isloading,Setisloading]=useState(true)
 let searchvalue:string;
@@ -80,8 +84,19 @@ searchvalue=search
 
 async function  init(){
 
-  let c= await GetPopularMoview()
-  console.log(c)
+
+  const prerandomNumber = Math.floor(Math.random() * 20)
+  console.log(prerandomNumber,'rand dnmdndnnd')
+props.setf(arraydatas[1])
+  
+  let c= await GetPopularMoview(setnow)
+ 
+
+  
+  const randomNumber = Math.floor(Math.random() * 50)
+
+  props.setf(c[randomNumber])
+  console.log(c[randomNumber])
   
  
 
@@ -112,7 +127,7 @@ Setisloading(true)
 
 
 
-var  results= await SearchMovieByTitle(searchvalue)
+var  results= await SearchMovieByTitle(searchvalue,setnow)
 
   console.log(results[0],"results")
 
@@ -147,14 +162,14 @@ return (<section className=" row section-1">
 
 
     
-<div className="col-md-2">
-<SideBar className="sidebar" />
+<div className="col-md-1">
+ 
 </div>  
     <div className=" page-render col-md-10"> 
     <h2>Popular movies at the moment</h2>
     <SearchBar onSearchEnter={onSearchEnter}  getValue={getSearchvalue} />
    
-{   isloading? <IsLoadingComponent/>: (resultisEmpty? <Noresult />:<Page itemclick={()=>{
+{   isloading? <div><Progressbar_  now_={now_}/><IsLoadingComponent/></div>: (resultisEmpty? <Noresult />:<Page itemclick={()=>{
   setDetiledviewShow(true)
 }} movid_hooker={setmovid} objects_={objects} />)}
 

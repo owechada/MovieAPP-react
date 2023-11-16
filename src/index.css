@@ -16,6 +16,7 @@ font-family: Poppins;
 body{
 
   background: rgba(0, 0, 0, 0.841) url('../public/bgmovies_images.png')  !important;
+   background: rgba(0, 0, 0, 0.456) url('../public/bgmovies_images.png')  !important;
 background-blend-mode: multiply;
 }
 
@@ -28,6 +29,7 @@ html{
  align-items: center;
  height: 10vh;
   background-color:var(--backcolor);
+ 
 }
 
 .header-search{
@@ -104,7 +106,7 @@ position: relative;
     z-index: 2;
     margin: 10px 20px;
     font-size: 1.5rem;
-    color: var(--oncolor);
+    color: #fff;
     font-weight: 700;
     top: 0;
   }
@@ -175,11 +177,17 @@ color: #8a8a8a;
     color: var(--oncolor);
     height: auto;
 padding: 10px 20px;
-
+ 
   }
   .section-1 h2{
    font-size:1.3rem;
+   background-color: var(--backcolor);
+   color: var(--oncolor);
+   padding: 10px;
+   border-radius: 11px;
    font-weight: 600;
+
+ 
   }
   .movie-item{
     border-bottom-left-radius: 5px;
@@ -190,18 +198,21 @@ display: flex;
     margin-bottom: 5px  ;
     flex-direction: column;
     
-  background-image: linear-gradient(0deg, rgb(255, 0, 149), rgb(3, 48, 194)) !important;
+  background-color: var(--backcolor);
 
   }
   .movie-item h2 {
 overflow: hidden;
-    font-size: 1rem;
-    min-height: 2.5rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    min-height: 3rem;
+    color: var(--oncolor) !important;
     
   }
   .movie-item small{
     font-size: 1rem;
-    color: white;
+    color: var(--oncolor) !important;
+    font-weight: bold;
     overflow: hidden;
     overflow: hidden;
     mask-image: linear-gradient(180deg, #000 60%,transparent);
@@ -210,19 +221,20 @@ overflow: hidden;
   
   .movie-item p {
 
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     opacity: 0.7;
     height: auto;
     overflow: hidden;
+    color: var(--oncolor) !important;
   }
   .movie-item:hover{
-    border: 2px solid #c2c2fd;
+    border: 2px solid rgb(32, 169, 255);
     
   }
 
   .movie-item p , .movie-item h2,  .movie-item small{
     padding: 3px 10px;
-    color:white;
+    color:rgb(255, 255, 255);
   }
   .movie-item-image{
     height: 60%;
@@ -258,7 +270,9 @@ overflow: hidden;
  
 display: flex;
 flex-direction: row;
+padding: 10px;
 align-items: center;
+background-color: #000000a0;
 justify-content: center;
  
   }
@@ -274,8 +288,8 @@ display: flex;
 justify-content: center;
 align-items: center;
 padding: 7px;
-border: 2px solid #c2c2fd;
-color: #c2c2fd;
+border: 2px solid #f6bf1bb3;
+color: #f6d51b;
 width: auto;
 border-radius: 5px;
 font-size: 13px;
@@ -312,7 +326,7 @@ font-weight:600;
 
   .page-item-active{
 
-    color: black;
+    color: #fff;
     background-color: var(--oncolor);
   }
 
@@ -329,5 +343,25 @@ display: flex;
 justify-content: center;
 align-items: center;
 
+
+  }
+
+  .night-toggle{
+
+width: 100%;
+ display:flex;
+flex-direction: column;
+    font-size: 2rem;
+  }
+
+  .night-toggle:active{
+
+
+    background-color: var(--backcolor) !important;
+    color: var(--oncolor);
+  }
+  .night-toggle i {
+justify-self: flex-end !important;
+align-self: flex-end !important;
 
   }
